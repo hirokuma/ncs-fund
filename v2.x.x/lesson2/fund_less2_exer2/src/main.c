@@ -25,7 +25,9 @@ static const struct gpio_dt_spec led = GPIO_DT_SPEC_GET(LED0_NODE, gpios);
 /* STEP 4 - Define the callback function */
 static void button_pressed(const struct device *dev, struct gpio_callback *cb, uint32_t pins)
 {
+#ifdef CONFIG_MYLOGGING_INTERRUPT
 	printk("button_pressed: %d\r\n", pins);
+#endif
 	int ret = gpio_pin_get_dt(&button);
     gpio_pin_set_dt(&led, ret);
 }

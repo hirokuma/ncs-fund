@@ -1,0 +1,5 @@
+source "Kconfig.zephyr"
+
+config MYLOGGING_INTERRUPT
+    bool "Output log on button interrupt"
+    default n
